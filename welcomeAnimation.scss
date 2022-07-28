@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css?family=Barriecito&display=swap");
+
+$primary-color: #00B4DB;
+$secondary-color: #0083B0;
+
+* {
+	box-sizing: border-box;
+
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+}
+
+.container {
+	padding: 0 10px;
+}
+
+h1 {
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	margin: 0;
+	width: 100%;
+	position: relative;
+	padding: 10px;
+	
+	@media only screen and (min-width: 768px) {
+		font-size: 40px;
+		padding: 10px 20px;	
+	}
+	
+	@media only screen and (min-width: 992px) {
+		font-size: 50px;
+	}
+	
+	@media only screen and (min-width: 1170px) {
+		font-size: 72px;
+	}
+	
+}
+
+.effect-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	height: 50vh;
+}
+
+.effect-block {
+	span {
+		opacity: 0;
+		animation: text-visible 0.0001s linear forwards;
+		animation-delay: 1.5s;
+	}
+
+	&:after {
+		content: "";
+		top: 0;
+		left: 0;
+		position: absolute;
+		width: 0%;
+		height: 100%;
+		background: $primary-color;
+		animation: effect-block 2s cubic-bezier(0.19, 1, 0.22, 1);
+		animation-delay: 1s;
+	}
+}
+
+#another {
+	top: 30px;
+	
+	@media only screen and (min-width: 992px) {
+		left: 100px;
+	}
+
+	span {
+		animation-delay: 2s;
+	}
+
+	&.effect-block:after {
+		background: $secondary-color;
+		animation-delay: 1.4s;
+	}
+}
+
+@keyframes effect-block {
+	0% {
+		left: 0;
+		width: 0%;
+	}
+	50% {
+		left: 0;
+		width: 100%;
+	}
+	100% {
+		left: 100%;
+		width: 0%;
+	}
+}
+
+@keyframes text-visible {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
